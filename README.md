@@ -9,7 +9,7 @@ In the following code we built a SVM classifier for IMDB Movies reviews.
 * <b>Data-Sets</b><br>
 We used a data set that contains 49950 IMDB reviews taged as positive and negative<br>
 The training set is consisted of 70% of the reviews, while the test set is consisted of 30% of them.<br>
-
+<hr>
 * <b>Analyzing & Pre-Processing The Data</b><br>
 We tried to find and grade the most significant set of tokens that will contribute more information for the reviews Sentiment's.
 Afterward we chose the TF-IDF for gradeing and normalize the tokens to vectors.
