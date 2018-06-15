@@ -2,35 +2,23 @@
 
 <hr>
 
-In the following code we built a convolutional neural network using keras library,<br>
-that gets as an input 32X32 pixels grayscale images of flowers, and generates an output of 96X96 colored flowers images.
+In the following code we built a SVM classifier for IMDB Movies reviews.
 
 <hr>
 
 * <b>Data-Sets</b><br>
-We used a data set that contains 8189 pairs of grayscale and colored flower images<br>
-The training set is consisted of 70% of the images, while the test set is consisted of 30% of them. 10% of the training images are used for validation.<br>
+We used a data set that contains 49950 IMDB reviews taged as positive and negative<br>
+The training set is consisted of 70% of the reviews, while the test set is consisted of 30% of them.<br>
 
-<hr>
-
-* <b>Model's Network Architecture</b><br>
-We've been experimenting with several different designs of the network.<br>
-In every model we chose to use RELU activation function on the hidden layers of the network.<br>
-On the output layer we used sigmoid function in order to output values between 0 and 1.<br>
-Generally the network processed the input image in such a way that it has been shrinked on the first few layers and than upscaled to the desired output dimensions. We used strides and up-sampling in order to do so.<br>
-We achieved the best results for this assignment using the described method.<br>
-Overfitting on these kind of networks is a subjective matter, therefore we needed to examine the results and determine wether they match our expectations.
-<hr>
-
-* <b>Model's Training</b><br>
-We normalized the input pixel values to be between 0 and 1, and used the mean square error loss function to measure our results.<br>
-After that we also tried using the "msle" loss function which we found more suitable for our project.
-On both occasions we used the "rmsprop" optimizer to minimize our loss.
+* <b>Analyzing & Pre-Processing The Data</b><br>
+We tried to find and grade the most significant set of tokens that will contribute more information for the reviews Sentiment's.
+Afterward we chose the TF-IDF for gradeing and normalize the tokens to vectors.
+On the TF-IDF we chose to use the Ngram model to get information from the previews world, set it up to (1,5), and using stopword to clean up the noisy world and custom made function to tokenized the reviews by using WordNetLemmatizer to gain one appearance for words that have same meaning in different declensions.
+The SVM classifier how's get the output of the TF-IDF using A linear kernel and the C chose to be 15.
 <hr>
 
 * <b>Performance</b><br>
-We were suprised by our initial results, it seemed like the network recognized the shapes and textures of the input images, and also colored them nicely.<br>
-The only issue we had is the lack of sharpness of the output images.<br>
-We then added more convolutional layers to deepen our network and we increased the amount of filters in each layer dramatically. Furthermore we tested different batch sizes and number of epochs.<br>
-The output images became more sharp and clear, the results were way over our expectations.
+We saw that when we try to "clean" the pos and neg train individually the acc wes bad 77%, then we use the TF-IDF to give a unuiq score to each token according to its appearance in a nagetive or a positive sentiment respectivly each document.
+
+We could do so since TF-IDF is a numerical statistic that is intended to reflect how important a word is to a document in a our text, we than got a satisfying accuracy percentage wich stands on 88%.
 <hr>
