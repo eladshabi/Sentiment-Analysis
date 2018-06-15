@@ -2,7 +2,7 @@
 
 <hr>
 
-In the following code we built a SVM classifier for IMDB Movies reviews.
+In the following code we built a SVM classifier for IMDB Movies reviews using Nltk Sklearn and Pandas libraries.
 
 <hr>
 
